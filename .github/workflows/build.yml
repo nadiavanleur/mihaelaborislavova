@@ -8,6 +8,12 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
+    - name: Install
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
@@ -15,3 +21,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: '/domains/mihaelaborislavova.nl/public_html/'
+        local-dir: './public/'
