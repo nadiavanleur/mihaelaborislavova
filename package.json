@@ -12,8 +12,8 @@
   },
   "scripts": {
     "dev": "parcel ./public/index.html --open",
-    "build": "parcel build ./public/index.html",
-    "setup": "node ./contentful/setup.js"
+    "build": "parcel build ./public/index.html --no-source-maps --no-cache --no-content-hash",
+    "serve": "parcel serve ./dist/index.html --no-source-maps --no-cache"
   },
   "browserslist": [
     "last 1 chrome version",
