@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches: [ "master" ]
+
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -13,6 +16,9 @@ jobs:
 
     - name: Build
       run: npm run build
+      with:
+        spaceId: ${{ secrets.CONTENTFUL_SPACE_ID }}
+        accessToken: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
