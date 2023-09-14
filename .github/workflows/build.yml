@@ -1,4 +1,9 @@
-on: push
+on:
+  push:
+    branches:
+      - master # Code pushed to master branch
+  repository_dispatch:
+    types: [publish-event] # Contentful deploy
 
 name: 🚀 Deploy website on push
 jobs:
