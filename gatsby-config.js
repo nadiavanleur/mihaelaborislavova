@@ -4,8 +4,8 @@ require(`dotenv`).config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Contentful Starter`,
-    description: `Official Contentful Gatsby Starter`,
+    title: `Mihaela Borislavova`,
+    description: `Mihaela Borislavova's personal website`,
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -21,6 +21,27 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-transformer-remark`
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-remove-fingerprints`,
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: true,          // use prettier to format JS code output (default)
+        svgo: true,              // use svgo to optimize SVGs (default)
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  // disable plugins
+                  removeViewBox: false,
+                },
+              },
+            },
+          ],
+        },
+      },
+    }
   ],
 };

@@ -3,7 +3,7 @@ import Seo from '../Seo'
 
 type Props = {
   title: string,
-  image: string,
+  image?: string,
   description?: string,
   lang?: string,
   children?: React.ReactNode,

@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--color-gray-200);
+  color: var(--text-color-dark);
+  min-width: var(--target-size);
+  min-height: var(--target-size);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  font-weight: bold;
+  font-style: italic;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-gray-300);
+  }
+}
+
+.button--icon-only {
+  padding: var(--spacing-xxs);
+}

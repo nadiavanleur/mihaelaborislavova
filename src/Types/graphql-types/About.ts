@@ -12,6 +12,10 @@ type About = {
     description: string,
     placeholderUrl: string,
   },
+  cv: {
+    url: string,
+    title: string,
+  }
 }
 
 export default About;

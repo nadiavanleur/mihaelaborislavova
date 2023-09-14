@@ -1,0 +1,12 @@
+@import '../../style/scss-variables.scss';
+
+.title {
+  color: var(--color-gray-300);
+  font-size: 15vw;
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+
+  @media screen and (min-width: $screen-md) {
+    font-size: 8.7vw;
+  }
+}

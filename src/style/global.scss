@@ -1,44 +1,15 @@
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url('/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: url('/fonts/Inter-italic.var.woff2?v=3.19') format('woff2');
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
-}
-
-html * {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height);
   box-sizing: border-box;
-}
-
-body {
-  background: var(--background);
-  color: var(--text-color);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: var(--body);
-  line-height: var(--default);
-  margin: 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  display: block;
-  width: 100%;
+  background: var(--color-black);
+  color: var(--text-color-light);
+  font-size: 1rem;
 }
 
 h1,
@@ -47,55 +18,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--semibold);
-  line-height: var(--dense);
+  font-family: var(--font-family-heading);
 }
 
-a {
-  color: currentColor;
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--primary);
-}
-
-a.active {
-  font-weight: var(--bold);
-}
-
-tt,
-code,
-kbd {
-  background: var(--black-fade-5);
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-}
-
-tt,
-code,
-kbd {
-  font-family: var(--font-monospace);
-  font-size: 90%;
-}
-
-tt,
-code {
-  background-color: var(--black-fade-5);
-  border-radius: var(--radius-sm);
-  font-weight: var(--medium);
-  padding: 0.2em 0;
-}
-
-code:before,
-code:after,
-tt:before,
-tt:after {
-  content: ' ';
-  letter-spacing: -0.2em;
-}
-
-pre,
-code {
-  font-family: var(--font-monospace);
+/**
+ * Utility classes
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

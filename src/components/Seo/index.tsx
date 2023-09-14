@@ -7,7 +7,7 @@ type Props = {
   lang?: string
   meta?: any[]
   title: string
-  image: string
+  image?: string
 }
 
 const Seo = ({ description = '', lang = 'en', meta = [], title, image }: Props) => {
@@ -40,10 +40,17 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }: Props) 
           name: `description`,
           content: metaDescription,
         },
-        {
-          name: `image`,
-          content: image,
-        },
+        ...!!image?.length ? [
+            {
+              property: `og:image`,
+              content: image,
+            },
+            {
+              property: `og:image`,
+              content: image,
+            }
+          ]:
+          [],
         {
           property: `og:title`,
           content: title,
@@ -55,10 +62,6 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }: Props) 
         {
           property: `og:type`,
           content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: image,
         },
         {
           name: `twitter:card`,
