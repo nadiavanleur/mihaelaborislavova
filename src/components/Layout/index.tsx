@@ -20,7 +20,7 @@ const Layout = ({ title, image, description, lang, children }: Props) => {
         description={description}
         lang={lang}
       />
-      <main data-browser={browserName.toLowerCase()}>{children}</main>
+      <main data-browser={typeof window !== 'undefined' ? browserName.toLowerCase() : undefined}>{children}</main>
     </>
   )
 }
