@@ -1,5 +1,6 @@
 import React from 'react'
 import Seo from '../Seo'
+import { browserName } from 'react-device-detect';
 
 type Props = {
   title: string,
@@ -9,16 +10,19 @@ type Props = {
   children?: React.ReactNode,
 }
 
-const Layout = ({ title, image, description, lang, children }: Props) => (
-  <>
-    <Seo
-      title={title}
-      image={image}
-      description={description}
-      lang={lang}
-    />
-    <main>{children}</main>
-  </>
-)
+const Layout = ({ title, image, description, lang, children }: Props) => {
+
+  return (
+    <>
+      <Seo
+        title={title}
+        image={image}
+        description={description}
+        lang={lang}
+      />
+      <main data-browser={browserName.toLowerCase()}>{children}</main>
+    </>
+  )
+}
 
 export default Layout

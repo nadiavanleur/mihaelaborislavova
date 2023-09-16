@@ -9,4 +9,12 @@
   @media screen and (min-width: $screen-md) {
     font-size: 8.7vw;
   }
+
+  [data-browser="chrome"] & {
+    letter-spacing: 0.3vw;
+
+    @media screen and (min-width: $screen-md) {
+      letter-spacing: 0.182vw;
+    }
+  }
 }

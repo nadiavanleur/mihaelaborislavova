@@ -41,15 +41,15 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }: Props) 
           content: metaDescription,
         },
         ...!!image?.length ? [
-            {
-              property: `og:image`,
-              content: image,
-            },
-            {
-              property: `og:image`,
-              content: image,
-            }
-          ]:
+          {
+            property: `og:image`,
+            content: image,
+          },
+          {
+            property: `og:image`,
+            content: image,
+          }
+        ] :
           [],
         {
           property: `og:title`,
@@ -78,7 +78,7 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }: Props) 
         {
           name: `twitter:description`,
           content: metaDescription,
-        },
+        }
       ].concat(meta)}
     />
   )

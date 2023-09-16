@@ -11,16 +11,30 @@ type Props = {
   iconOnly?: boolean;
 }
 
-const LinkButton = ({ to, target, children, icon, iconOnly }: Props) => {
+const LinkButton = ({ target, children, icon, iconOnly, ...props }: Props) => {
+  const isExternal = !!props.to.startsWith('http');
+  const LinkComponent = isExternal ? 'a' : Link;
+  const attributes = isExternal ? {
+    rel: 'noopener noreferrer',
+    target: '_blank',
+    href: props.to,
+  } : {
+    to: props.to,
+  };
+
   return (
-    <Link to={to} className={`${style.button} ${iconOnly ? style.buttonIconOnly : ''}`} target={target}>
+    <LinkComponent
+      className={`${style.button} ${iconOnly ? style.buttonIconOnly : ''}`}
+      target={target}
+      {...attributes}
+    >
       {!!icon && (
-        <Icon icon={icon} size={24} className={style.icon} />
+        <Icon icon={icon} size={24} />
       )}
       <span className={iconOnly ? 'visually-hidden' : undefined}>
         {children}
       </span>
-    </Link>
+    </LinkComponent>
   );
 }
 
