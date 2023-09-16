@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Seo from '../Seo'
 import { browserName } from 'react-device-detect';
 
@@ -12,6 +12,13 @@ type Props = {
 
 const Layout = ({ title, image, description, lang, children }: Props) => {
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const dataBrowser = browserName.toLowerCase();
+      document.body.setAttribute('data-browser', dataBrowser);
+    }
+  }, []);
+
   return (
     <>
       <Seo
@@ -20,7 +27,7 @@ const Layout = ({ title, image, description, lang, children }: Props) => {
         description={description}
         lang={lang}
       />
-      <main data-browser={typeof window !== 'undefined' ? browserName.toLowerCase() : undefined}>{children}</main>
+      <main>{children}</main>
     </>
   )
 }
