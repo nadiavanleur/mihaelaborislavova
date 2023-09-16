@@ -62,6 +62,9 @@
   // A11y
   --target-size: 44px;
 
+  // Backdrop
+  --backdrop-offset: var(--spacing-xs);
+
   @media (any-pointer: coarse) {
     --target-size: 48px;
   }
